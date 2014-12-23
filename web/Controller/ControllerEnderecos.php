@@ -9,7 +9,7 @@ $enderecos = $app['controllers_factory'];
 $offsetDefault = 1;
 $limitDefault = 20;
 
-$enderecos->get("/{offset}/{limit}/", function(Silex\Application $app,  Request $request, $offset, $limit){
+$enderecos->get("/offset/{offset}/limit/{limit}/", function(Silex\Application $app,  Request $request, $offset, $limit){
 
 		$sql = "SELECT * FROM ruas_braganca LIMIT " . $offset . ", " . $limit;
     $response['ruas'] = $app['dbs']['mysql_read']->fetchAll($sql);	
@@ -21,7 +21,7 @@ $enderecos->get("/{offset}/{limit}/", function(Silex\Application $app,  Request 
   ->value('offset', $offsetDefault)
   ->value('limit', $limitDefault);
 
-$enderecos->get("/bairros-de-braganca", function(Silex\Application $app, $offset, $limit){
+$enderecos->get("/bairros-de-braganca/offset/{offset}/limit/{limit}/", function(Silex\Application $app, $offset, $limit){
 
 	$sql = "SELECT * FROM bairros_braganca LIMIT " . $offset . ", " . $limit;
   $response['bairros'] = $app['dbs']['mysql_read']->fetchAll($sql);	

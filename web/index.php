@@ -21,15 +21,8 @@ $app['debug'] = true;
     ),
 ));
 
-
-/* Controllers 
-    Recebe as requisições e entrega para o Browser, faz o roteamento.
-*/
-
  $app->mount("/bragmobi/linhas-de-onibus", require_once 'Controller/ControllerLinhasDeOnibus.php');
  $app->mount("/bragmobi/enderecos", require_once 'Controller/ControllerEnderecos.php');
-
-
 
 /*
 $app['res'] = function(){
