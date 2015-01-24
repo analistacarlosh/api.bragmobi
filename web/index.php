@@ -15,7 +15,7 @@ $app['debug'] = true;
             'host'      => '127.0.0.1',
             'dbname'    => 'banco_brag_mobi',
             'user'      => 'root',
-            'password'  => '',
+            'password'  => 'root',
             'charset'   => 'utf8',
         ),
     ),
@@ -23,6 +23,12 @@ $app['debug'] = true;
 
  $app->mount("/bragmobi/linhas-de-onibus", require_once 'Controller/ControllerLinhasDeOnibus.php');
  $app->mount("/bragmobi/enderecos", require_once 'Controller/ControllerEnderecos.php');
+
+$app->after(function (Request $request, Response $response) {
+    $response->headers->set('Access-Control-Allow-Origin', '*');
+    $response->headers->set('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Origin');
+    $response->headers->set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+});
 
 /*
 $app['res'] = function(){
