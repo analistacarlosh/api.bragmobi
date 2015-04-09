@@ -35,7 +35,7 @@ $linhasDeOnibus->get("/linha/{id_da_linha}", function(Silex\Application $app, Re
 /* /horarios-da-linha/linha/{linha} */
 $linhasDeOnibus->get("/horarios-da-linha/linha/{id_da_linha}", function(Silex\Application $app, Request $request, $id_da_linha){
 
-  $sql = "SELECT * FROM tbl_relaciona_linha_enderecos WHERE fk_id_linha = ? ";
+  $sql = "SELECT * FROM  tbl_relaciona_linha_horarios WHERE fk_id_linha = ? ";
   $response['horarios-da-linha'] = $app['dbs']['mysql_read']->fetchAll($sql, array($id_da_linha));  
   $response['message'] = 'sucess';
 
@@ -45,7 +45,7 @@ $linhasDeOnibus->get("/horarios-da-linha/linha/{id_da_linha}", function(Silex\Ap
 /* /itinerarios-da-linha/linha/{linha} */
 $linhasDeOnibus->get("/itinerarios-da-linha/linha/{id_da_linha}", function(Silex\Application $app, Request $request, $id_da_linha){
 
-    $sql = "SELECT * FROM tbl_relaciona_linha_horarios WHERE fk_id_linha = ? ";
+    $sql = "SELECT * FROM tbl_relaciona_linha_enderecos WHERE fk_id_linha = ? ";
     $response['itinerarios-da-linha'] = $app['dbs']['mysql_read']->fetchAll($sql, array($id_da_linha));  
     $response['message'] = 'sucess';
 

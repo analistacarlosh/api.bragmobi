@@ -23,6 +23,8 @@ $app['debug'] = true;
 
  $app->mount("/bragmobi/linhas-de-onibus", require_once 'Controller/ControllerLinhasDeOnibus.php');
  $app->mount("/bragmobi/enderecos", require_once 'Controller/ControllerEnderecos.php');
+ $app->mount("/bragmobi/bus-station", require_once 'Controller/ControllerBusStation.php');
+ $app->mount("/bragmobi/bus-price", require_once 'Controller/ControllerBusPrice.php');
 
 $app->after(function (Request $request, Response $response) {
     $response->headers->set('Access-Control-Allow-Origin', '*');
