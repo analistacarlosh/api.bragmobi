@@ -12,10 +12,10 @@ $app['debug'] = true;
     'dbs.options' => array (
         'mysql_read' => array(
             'driver'    => 'pdo_mysql',
-            'host'      => '127.0.0.1',
-            'dbname'    => 'banco_brag_mobi',
-            'user'      => 'root',
-            'password'  => 'root',
+            'host'      => 'mysql01.apionibus.hospedagemdesites.ws',
+            'dbname'    => 'apionibus',
+            'user'      => 'apionibus',
+            'password'  => 'busapi77',
             'charset'   => 'utf8',
         ),
     ),
@@ -25,6 +25,8 @@ $app['debug'] = true;
  $app->mount("/bragmobi/enderecos", require_once 'Controller/ControllerEnderecos.php');
  $app->mount("/bragmobi/bus-station", require_once 'Controller/ControllerBusStation.php');
  $app->mount("/bragmobi/bus-price", require_once 'Controller/ControllerBusPrice.php');
+ $app->mount("/bragmobi/push-notification", require_once 'Controller/ControllerPushNotification.php');
+ $app->mount("/bragmobi/category", require_once 'Controller/ControllerCategory.php');
 
 $app->after(function (Request $request, Response $response) {
     $response->headers->set('Access-Control-Allow-Origin', '*');
